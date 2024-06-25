@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "types": ["@testing-library/jest-dom"],
+    "allowSyntheticDefaultImports": true,
+  },
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
