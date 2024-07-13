@@ -1,0 +1,50 @@
+$primaryColor: #ff9800;
+$defaultColor: #333333;
+$transitionDuration: 0.1s;
+
+.button {
+    background: transparent;
+    color: $defaultColor;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $defaultColor;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background $transitionDuration ease, color $transitionDuration ease;
+
+    &:hover {
+        background: $defaultColor;
+        color: var(--color-white);
+    }
+
+    &.primary {
+        border: 1px solid $primaryColor;
+
+        &:hover {
+            background: $primaryColor;
+        }
+
+        &[disabled] {
+            cursor: default;
+            opacity: 0.5;
+            background: $primaryColor;
+            color: $defaultColor;
+    
+            &:hover {
+                background: $primaryColor;
+            }
+        }    
+    }
+
+    &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+        background: $defaultColor;
+        color: var(--color-white);
+
+        &:hover {
+            background: $defaultColor;
+        }
+    }
+}
