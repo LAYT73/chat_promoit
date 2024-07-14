@@ -6,6 +6,7 @@ import {
   Navigate,
   Outlet,
 } from 'react-router-dom';
+import { Input } from '@/shared/ui';
 
 const Routing: React.FC = () => {
   return (
@@ -13,7 +14,10 @@ const Routing: React.FC = () => {
       <Routes>
         <Route path="/" element={<Outlet />}>
           <Route index element={<Navigate to="/home" />} />
-          <Route path="/home" element={<></>} />
+          <Route
+            path="/home"
+            element={<Input hint="home1" placeholder="home"></Input>}
+          />
           <Route path="/login" element={<>login</>} />
           <Route path="/register" element={<></>} />
         </Route>
