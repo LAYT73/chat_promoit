@@ -34,7 +34,7 @@
 }
 
 .icon {
-  margin-right: 0.5rem;
+  margin-right: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,15 +44,14 @@
   flex: 1;
   border: none;
   outline: none;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   background-color: #1a1d21;
   color: white;
 }
 
 .hint {
   display: flex;
-  margin-top: 12px;
-  margin-left: 4px;
+  margin: 12px 0 12px 4px;
 }
 
 .hintIcon {

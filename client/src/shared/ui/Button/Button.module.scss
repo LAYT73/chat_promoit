@@ -1,21 +1,23 @@
 $primaryColor: #ff9800;
-$defaultColor: #333333;
-$transitionDuration: 0.1s;
+$defaultColor: #B6F09C;
+$transitionDuration: 0.25s;
 
 .button {
-    background: transparent;
-    color: $defaultColor;
-    font-weight: 700;
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
+    margin: 4px;
+    background: $defaultColor;
+    color: var(--color-black);
+    font-weight: 600;
+    font-size: 16px;
+    height: 48px;
+    padding: 12px 24px;
     border: 1px solid $defaultColor;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background $transitionDuration ease, color $transitionDuration ease;
 
     &:hover {
-        background: $defaultColor;
-        color: var(--color-white);
+        background: transparent;
+        color: $defaultColor;
     }
 
     &.primary {

@@ -14,7 +14,7 @@ const Input: React.FC<InputProps> = ({ icon, className, hint, ...props }) => {
           [styles.focused]: isFocused,
         })}
       >
-        {icon && <span className={styles.icon}>{icon}</span>}
+        {icon && <img className={styles.icon} src={icon} alt="" />}
         <input
           className={styles.input}
           {...props}
