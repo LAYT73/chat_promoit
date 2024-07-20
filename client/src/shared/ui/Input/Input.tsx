@@ -31,10 +31,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <input ref={ref} className={styles.input} {...props} />
         </div>
         {hint && (
-          <div className={styles.hint}>
+          <motion.div
+            transition={{ type: 'spring' }}
+            initial={{ y: -16 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true }}
+            className={styles.hint}
+          >
             <img className={styles.hintIcon} src={Info_Circle_Solid} alt="" />
             <p className={styles.hintText}>{hint}</p>
-          </div>
+          </motion.div>
         )}
       </motion.div>
     );

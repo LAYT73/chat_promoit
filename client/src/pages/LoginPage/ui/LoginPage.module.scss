@@ -14,6 +14,13 @@
   border-radius: 24px;
 }
 
+.loginContainer {
+  min-width: 46vw;
+  min-height: 96vh;
+  max-width: 46vw;
+  max-height: 96vh;
+}
+
 .imageContainer {
   min-width: 50vw;
   min-height: 96vh;
@@ -22,4 +29,15 @@
   background: #2E464E url('@/assets/images/abstract-01.png') no-repeat right;
   background-size: cover;
   border-radius: 24px;
+}
+
+@media (max-width: 1000px) {
+  .imageContainer {
+    display: none;
+  }
+
+  .loginContainer {
+    min-width: 96vw;
+    max-width: 96vw;
+  }
 }
