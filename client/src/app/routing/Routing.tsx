@@ -6,6 +6,7 @@ import {
   Navigate,
   Outlet,
 } from 'react-router-dom';
+import { LoginPage } from '@/pages/LoginPage/ui';
 
 const Routing: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Routing: React.FC = () => {
         <Route path="/" element={<Outlet />}>
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<>home</>} />
-          <Route path="/login" element={<>login</>} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<></>} />
         </Route>
       </Routes>

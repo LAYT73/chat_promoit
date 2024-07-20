@@ -7,12 +7,17 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled,
   primary,
+  style,
   children,
 }) => {
-  const buttonClasses = classNames(styles.button, {
-    [styles.primary]: primary,
-    [styles.disabled]: disabled,
-  });
+  const buttonClasses = classNames(
+    styles.button,
+    {
+      [styles.primary]: primary,
+      [styles.disabled]: disabled,
+    },
+    style,
+  );
 
   return (
     <button className={buttonClasses} onClick={onClick} disabled={disabled}>

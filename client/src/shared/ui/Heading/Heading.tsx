@@ -3,10 +3,21 @@ import classNames from 'classnames';
 import styles from './Heading.module.scss';
 import HeadingProps from './IHeadingProps';
 
-const Heading: React.FC<HeadingProps> = ({ size = 'h1', children }) => {
+const Heading: React.FC<HeadingProps> = ({
+  size = 'h1',
+  fontStyle = 'regular',
+  style,
+  children,
+}) => {
   const headingSizeClass = styles[size];
+  const headingStyleClass = styles[fontStyle];
 
-  const headingClasses = classNames(styles.heading, headingSizeClass);
+  const headingClasses = classNames(
+    styles.heading,
+    headingSizeClass,
+    headingStyleClass,
+    style,
+  );
 
   switch (size) {
     case 'h1':
