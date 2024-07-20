@@ -5,3 +5,4 @@ export { default as Modal } from './Modal';
 export { default as Paragraph } from './Paragraph';
 export { default as Portal } from './Portal';
 export { default as Input } from './Input';
+export { default as CheckBox } from './CheckBox';

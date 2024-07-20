@@ -11,13 +11,14 @@ $transitionDuration: 0.25s;
     height: 48px;
     padding: 12px 24px;
     border: 1px solid $defaultColor;
+    outline: 4px solid rgba(213, 255, 193, 0);
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background $transitionDuration ease, color $transitionDuration ease;
+    transition: background $transitionDuration ease, color $transitionDuration ease, outline $transitionDuration ease;
 
     &:hover {
-        background: transparent;
-        color: $defaultColor;
+        background: #c8fbf2;
+        outline: 4px solid #3f9068;
     }
 
     &.primary {

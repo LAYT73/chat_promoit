@@ -16,7 +16,7 @@ const Routing: React.FC = () => {
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<>home</>} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<></>} />
+          <Route path="/signup" element={<></>} />
         </Route>
       </Routes>
     </Router>

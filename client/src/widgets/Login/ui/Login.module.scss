@@ -3,3 +3,11 @@
   width: 50%;
   height: 100%;
 }
+
+.actions {
+  position: absolute;
+  bottom: 6vh;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
