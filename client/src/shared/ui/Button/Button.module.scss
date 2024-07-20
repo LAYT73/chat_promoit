@@ -21,6 +21,11 @@ $transitionDuration: 0.25s;
         outline: 4px solid #3f9068;
     }
 
+    &:focus {
+        background: #c8fbf2;
+        outline: 4px solid #3f9068;
+    }
+
     &.primary {
         border: 1px solid $primaryColor;
 

@@ -15,6 +15,7 @@ const NotificationsContainer: React.FC = () => {
             key={notification.id}
             message={notification.message}
             duration={notification.duration}
+            type={notification.type}
             onDismiss={() => removeNotification(notification.id)}
           />
         ))}

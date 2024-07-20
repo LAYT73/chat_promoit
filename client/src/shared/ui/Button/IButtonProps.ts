@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default interface ButtonProps {
+export default interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>  {
   onClick?: () => void;
   disabled?: boolean;
   primary?: boolean;
-  style?: string;
+  styleButton?: string;
   children: React.ReactNode;
 }

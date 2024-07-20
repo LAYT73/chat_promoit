@@ -49,6 +49,16 @@ a:hover::before {
   transform: scaleX(1);
 }
 
+a:focus {
+  border: none;
+  outline: none;
+}
+
+a:focus::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
 
 body {
   background-color: var(--color-black);

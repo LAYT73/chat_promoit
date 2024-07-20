@@ -7,12 +7,14 @@ interface NotificationProps {
   message: string;
   onDismiss: () => void;
   duration?: number;
+  type?: 'success' | 'error' | 'info';
 }
 
 const Notification: React.FC<NotificationProps> = ({
   message,
   onDismiss,
   duration,
+  type,
 }) => {
   useEffect(() => {
     if (duration) {
@@ -23,7 +25,11 @@ const Notification: React.FC<NotificationProps> = ({
 
   return (
     <motion.div
-      className={cn(styles.notification)}
+      className={cn(styles.notification, {
+        [styles.success]: type === 'success',
+        [styles.error]: type === 'error',
+        [styles.info]: type === 'info',
+      })}
       initial={{ opacity: 0, translateY: -20 }}
       animate={{ opacity: 1, translateY: 0 }}
       exit={{ opacity: 0, translateY: -20 }}

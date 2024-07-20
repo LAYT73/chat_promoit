@@ -59,6 +59,31 @@
   color: white;
 }
 
+// Стили для автозаполнения инпутов
+.input:-webkit-autofill {
+  background-color: #1a1d21;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #1a1d21 inset;
+  box-shadow: 0 0 0 1000px #1a1d21 inset;
+  transition: background-color 5000s ease-in-out 0s; /* Предотвращает мерцание */
+}
+
+.input:-webkit-autofill:focus {
+  background-color: #1a1d21;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #1a1d21 inset;
+  box-shadow: 0 0 0 1000px #1a1d21 inset;
+}
+
+.input:-webkit-autofill::first-line {
+  background-color: #1a1d21;
+  color: #fff;
+}
+
+.input:-webkit-autofill{
+  -webkit-text-fill-color: white !important;
+}
+
 .hint {
   display: flex;
   margin: 12px 0 12px 4px;

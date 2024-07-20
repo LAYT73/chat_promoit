@@ -1,64 +1,115 @@
 import React from 'react';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import styles from './LoginForm.module.scss';
-import { Button, CheckBox, Heading, Input, Paragraph } from '@/shared/ui';
+import {
+  AnimatedText,
+  Button,
+  CheckBox,
+  Heading,
+  Input,
+  Paragraph,
+} from '@/shared/ui';
 import MailIcon from '@/assets/icons/mail.svg';
 import PadlockIcon from '@/assets/icons/padlock.svg';
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
+import { useLogin } from '@/shared/hooks';
+
+interface IFormInput {
+  email: string;
+  password: string;
+  remember: boolean;
+}
 
 const LoginForm: React.FC = () => {
-  const title: string[] = "Let's get".split(' ');
-  const paragraph: string[] = 'Log in to Artificium to start creating magic.'.split(' ');
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>();
+  const { login, loading } = useLogin();
+
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    await login({ email: data.email, password: data.password });
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
         <Heading size={'h2'} fontStyle={'regular'}>
-          {title.map((el, i) => (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.25,
-                delay: i / 10,
-              }}
-              key={i}
-            >
-              {el}{' '}
-            </motion.span>
-          ))}
+          <AnimatedText text={"Let's get"} />
         </Heading>
         <Heading size={'h2'} fontStyle={'bold'} style={styles.headingGradient}>
           creative!
         </Heading>
       </div>
       <Paragraph size={'large'} style={styles.paragraph}>
-        {paragraph.map((el, i) => (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.25,
-              delay: i / 10,
-            }}
-            key={i}
-          >
-            {el}{' '}
-          </motion.span>
-        ))}
+        <AnimatedText text={'Log in to Artificium to start creating magic.'} />
       </Paragraph>
-      <Input type={'email'} placeholder={'Enter your email'} icon={MailIcon} />
-      <Input
-        type={'password'}
-        placeholder={'Enter your password'}
-        icon={PadlockIcon}
-        className={styles.input}
-      />
-      <div className={styles.subData}>
-        <CheckBox>Remember me</CheckBox>
-        <Link to={'/forgot-password'}>Forgot password?</Link>
-      </div>
-      <Button style={styles.buttonLogin}>Log in</Button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.inputContainer}>
+          <Controller
+            name="email"
+            control={control}
+            rules={{
+              required: 'Email is required',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                message: 'Invalid email address',
+              },
+            }}
+            render={({ field }) => (
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                icon={MailIcon}
+                {...field}
+                hint={errors.email ? errors.email.message : undefined}
+              />
+            )}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <Controller
+            name="password"
+            control={control}
+            rules={{
+              required: 'Password is required',
+              minLength: {
+                value: 6,
+                message: 'Password must be at least 6 characters long',
+              },
+              maxLength: {
+                value: 20,
+                message: 'Password cannot exceed 20 characters',
+              },
+            }}
+            render={({ field }) => (
+              <Input
+                type="password"
+                placeholder="Enter your password"
+                icon={PadlockIcon}
+                className={styles.input}
+                {...field}
+                hint={errors.password ? errors.password.message : undefined}
+              />
+            )}
+          />
+        </div>
+        <div className={styles.subData}>
+          <CheckBox {...register('remember')}>
+            <AnimatedText text={'Remember me'} />
+          </CheckBox>
+          <Link to={'/forgot-password'}>Forgot password?</Link>
+        </div>
+        <Button
+          type="submit"
+          styleButton={styles.buttonLogin}
+          disabled={loading}
+        >
+          {loading ? 'Logging in...' : 'Log in'}
+        </Button>
+      </form>
     </div>
   );
 };
