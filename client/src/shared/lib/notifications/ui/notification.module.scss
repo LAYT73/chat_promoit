@@ -1,0 +1,53 @@
+.notification {
+  background-color: #333;
+  color: #fff;
+  width: max-content;
+  max-width: 25vw;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 8px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  &.error {
+    color: #ff7f7f;
+  }
+
+  &.success {
+    color: #3f9068;
+  }
+
+  &.info {
+    color: #ffffff;
+  }
+}
+
+
+
+.notification-enter {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.notification-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.notification-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

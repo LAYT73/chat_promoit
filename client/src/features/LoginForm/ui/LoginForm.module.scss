@@ -1,0 +1,35 @@
+.container {
+  padding: 10% 10%;
+}
+
+.heading {
+  display: flex;
+  gap: 8px;
+}
+
+.headingGradient {
+  background: -webkit-linear-gradient(60deg, #4D62E5, #87DDEE, #B6F09C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.paragraph {
+  color: #9B9C9E;
+  margin-bottom: 64px;
+}
+
+.buttonLogin {
+  width: 99%;
+  margin-top: 48px !important;
+}
+
+.subData {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  margin-top: 24px !important;
+}

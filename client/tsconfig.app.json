@@ -20,7 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-
+    "declaration": false,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

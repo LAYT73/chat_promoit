@@ -6,9 +6,10 @@ type Props = {
   src: string;
   alt: string;
   style?: string;
+  imageStyle?: string;
 };
 
-const LazyImage: FC<Props> = ({ src, alt, style }) => {
+const LazyImage: FC<Props> = ({ src, alt, style, imageStyle }) => {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   useEffect(() => {
@@ -20,7 +21,11 @@ const LazyImage: FC<Props> = ({ src, alt, style }) => {
   return (
     <div className={classnames(styles.lazyImageContainer, style)}>
       {isLoaded ? (
-        <img src={src} alt={alt} className={styles.lazyImage} />
+        <img
+          src={src}
+          alt={alt}
+          className={classnames(styles.lazyImage, imageStyle)}
+        />
       ) : (
         <></>
       )}

@@ -5,13 +5,24 @@
   border-radius: 8px;
   padding: 12px;
   margin: 4px;
-  max-width: 600px;
   height: 48px;
   background-color: #1a1d21;
   background-clip: padding-box;
   position: relative;
-  outline: 4px solid rgba(46, 70, 78, 0);
-  transition: all 0.3s;
+  z-index: -0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: 1px;
+    border-radius: inherit;
+    background: #1a1d21;
+  }
 
   &::before {
     content: '';
@@ -24,7 +35,6 @@
     margin: -1px;
     border-radius: inherit;
     background: #363A3D;
-
   }
 
   &.focused::before {
@@ -47,6 +57,31 @@
   padding: 0.5rem 0;
   background-color: #1a1d21;
   color: white;
+}
+
+// Стили для автозаполнения инпутов
+.input:-webkit-autofill {
+  background-color: #1a1d21;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #1a1d21 inset;
+  box-shadow: 0 0 0 1000px #1a1d21 inset;
+  transition: background-color 5000s ease-in-out 0s; /* Предотвращает мерцание */
+}
+
+.input:-webkit-autofill:focus {
+  background-color: #1a1d21;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px #1a1d21 inset;
+  box-shadow: 0 0 0 1000px #1a1d21 inset;
+}
+
+.input:-webkit-autofill::first-line {
+  background-color: #1a1d21;
+  color: #fff;
+}
+
+.input:-webkit-autofill{
+  -webkit-text-fill-color: white !important;
 }
 
 .hint {

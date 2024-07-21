@@ -1,34 +1,45 @@
 .heading {
-    color: var(--color-black);
+    color: var(--color-white);
+    font-weight: normal;
 
     &.h1 {
-        font-size: 6rem;
-        font-weight: 900;
+        font-size: 48px;
     }
     
     &.h2 {
-        font-size: 4rem;
-        font-weight: 800;
+        font-size: 36px;
     }
   
     &.h3 {
-        font-size: 3rem;
-        font-weight: 700;  
+        font-size: 32px;
     }
 
     &.h4 {
-        font-size: 2rem;
-        font-weight: 700;  
+        font-size: 28px;
     }
 
     &.h5 {
-        font-size: 1.75rem;
-        font-weight: 600;  
+        font-size: 24px;
     }
 
     &.h6 {
-        font-size: 1.50rem;
-        font-weight: 600;  
+        font-size: 20px;
+    }
+
+    &.regular {
+        font-weight: 400;
+    }
+
+    &.medium {
+        font-weight: 600;
+    }
+
+    &.semiBold {
+        font-weight: 700;
+    }
+
+    &.bold {
+        font-weight: bold;
     }
 }
   

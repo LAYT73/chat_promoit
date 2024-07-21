@@ -9,6 +9,8 @@
     },
     "types": ["@testing-library/jest-dom"],
     "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "moduleResolution": "node",
   },
   "references": [
     {
