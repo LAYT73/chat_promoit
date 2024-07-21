@@ -19,6 +19,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  font-family: "Jost", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 a {
   position: relative;
   font-weight: 500;

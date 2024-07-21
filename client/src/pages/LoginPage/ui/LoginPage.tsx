@@ -13,7 +13,6 @@ const LoginPage: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, rotate: 2 }}
           whileInView={{ opacity: 1, rotate: 0 }}
-          viewport={{ once: true }}
           transition={{ type: 'spring' }}
           className={styles.imageContainer}
         ></motion.div>

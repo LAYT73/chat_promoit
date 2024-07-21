@@ -23,14 +23,17 @@ interface IFormInput {
 const LoginForm: React.FC = () => {
   const {
     control,
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
   const { login, loading } = useLogin();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    await login({ email: data.email, password: data.password });
+    await login({
+      email: data.email,
+      password: data.password,
+      remember: data.remember,
+    });
   };
 
   return (
@@ -49,6 +52,7 @@ const LoginForm: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputContainer}>
           <Controller
+            defaultValue={''}
             name="email"
             control={control}
             rules={{
@@ -71,6 +75,7 @@ const LoginForm: React.FC = () => {
         </div>
         <div className={styles.inputContainer}>
           <Controller
+            defaultValue={''}
             name="password"
             control={control}
             rules={{
@@ -97,9 +102,15 @@ const LoginForm: React.FC = () => {
           />
         </div>
         <div className={styles.subData}>
-          <CheckBox {...register('remember')}>
-            <AnimatedText text={'Remember me'} />
-          </CheckBox>
+          <Controller
+            name="remember"
+            control={control}
+            render={({ field }) => (
+              <CheckBox {...field}>
+                <AnimatedText text={'Remember me'} />
+              </CheckBox>
+            )}
+          />
           <Link to={'/forgot-password'}>Forgot password?</Link>
         </div>
         <Button
