@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from 'react-router-dom';
-import { LoginPage } from '@/pages/LoginPage/ui';
+import { LoginPage, SignupPage } from '@/pages';
 import { PrivateRoute } from './PrivateRoute.tsx';
 import { PublicRoute } from '@/app/routing/PublicRoute.tsx';
 import { Layout } from './../layouts/Layout.tsx';
@@ -20,6 +20,10 @@ const Routing: React.FC = () => {
           <Route
             path="/login"
             element={<PublicRoute element={<LoginPage />} />}
+          />
+          <Route
+            path="/sign-up"
+            element={<PublicRoute element={<SignupPage />} />}
           />
         </Route>
       </Routes>

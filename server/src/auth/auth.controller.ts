@@ -2,8 +2,6 @@ import {
   Controller,
   Get,
   Post,
-  Delete,
-  Put,
   Body,
   Req,
   Res,
@@ -58,7 +56,12 @@ export class AuthController {
 
   @Post('signup')
   async signUp(@Body() body, @Res() res): Promise<void> {
-    await this.authService.signUp(body.email, body.password, res);
+    await this.authService.signUp(
+      body.email,
+      body.password,
+      body.username,
+      res,
+    );
   }
 
   @Post('login')

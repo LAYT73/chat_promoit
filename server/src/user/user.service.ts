@@ -18,7 +18,7 @@ export class UserService {
   async findByEmailProfile(email: string): Promise<User | null> {
     return await this.userRepository.findOne({
       where: { email },
-      select: ['email', 'role', 'created_at', 'updated_at', 'id'],
+      select: ['email', 'username', 'created_at', 'updated_at', 'id'],
     });
   }
 
@@ -26,14 +26,23 @@ export class UserService {
     return await this.userRepository.findOne({ where: { email } });
   }
 
+  async findByUsername(username: string): Promise<User | null> {
+    return await this.userRepository.findOne({ where: { username } });
+  }
+
   async findById(id: number): Promise<User | null> {
     return await this.userRepository.findOne({ where: { id } });
   }
 
-  async addUser(email: string, password: string): Promise<User> {
+  async addUser(
+    email: string,
+    password: string,
+    username: string,
+  ): Promise<User> {
     const hash = await bcrypt.hash(password, 10);
     const user = this.userRepository.create({
       email: email,
+      username: username,
       password: hash,
       role: 'user',
     });

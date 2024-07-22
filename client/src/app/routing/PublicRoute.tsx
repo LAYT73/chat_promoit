@@ -1,23 +1,7 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from './../store/store';
+import React from 'react';
+import { Route } from './Route';
+import { PublicRouteProps } from '@/app/routing/PublicRoute.types.ts';
 
-interface PublicRouteProps {
-  element: React.ReactElement;
-}
-
-export const PublicRoute: React.FC<PublicRouteProps> = ({ element }) => {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.user.isAuthenticated,
-  );
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/home');
-    }
-  }, [isAuthenticated]);
-  if (!isAuthenticated) {
-    return element;
-  }
+export const PublicRoute: React.FC<PublicRouteProps> = (props) => {
+  return <Route {...props} isPrivate={false} redirectPath="/home" />;
 };

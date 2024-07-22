@@ -2,6 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { User } from '@/entities/user/User';
 import axios from '@/shared/api';
 import { saveUserProfileToLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
+import { log } from '@/shared/lib';
 
 export interface UserState {
   isAuthenticated: boolean;
@@ -30,6 +31,7 @@ export const fetchUserProfile = createAsyncThunk<User, void, {}>(
       localStorage.setItem('profile', JSON.stringify(response.data));
       return response.data;
     } catch (error) {
+      log.error('Access token denied');
       await thunkAPI
         .dispatch(refreshToken())
         .unwrap()
@@ -43,6 +45,7 @@ export const fetchUserProfile = createAsyncThunk<User, void, {}>(
         localStorage.setItem('profile', JSON.stringify(response.data));
         return response.data;
       } catch (secondError) {
+        log.error('Access token denied again');
         return thunkAPI.rejectWithValue(secondError);
       }
     }
@@ -55,6 +58,7 @@ export const refreshToken = createAsyncThunk<void, void, {}>(
     try {
       await axios.post('/auth/refresh');
     } catch (error) {
+      log.error('Refresh token denied');
       return thunkAPI.rejectWithValue(error);
     }
   },

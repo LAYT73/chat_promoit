@@ -1,8 +1,14 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
 
-export class UserAlreadyExistsException extends HttpException {
+export class UserEmailAlreadyExistsException extends HttpException {
   constructor() {
     super('User with this email already exists', HttpStatus.BAD_REQUEST);
+  }
+}
+
+export class UserUsernameAlreadyExistsException extends HttpException {
+  constructor() {
+    super('User with this username already exists', HttpStatus.BAD_REQUEST);
   }
 }
 

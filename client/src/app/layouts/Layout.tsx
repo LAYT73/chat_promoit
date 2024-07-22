@@ -5,7 +5,7 @@ import { RootState } from './../store/store';
 import styles from './Layout.module.scss';
 
 export const Layout: React.FC = () => {
-  const isAuthenticated = useSelector(
+  const isAuthenticated: boolean = useSelector(
     (state: RootState) => state.user.isAuthenticated,
   );
 
