@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState, useContext, useCallback, useEffect } from 'react';
 import axios from '@/shared/api';
 import { NotificationContext } from '@/shared/lib/notifications/context/NotificationContext.tsx';
-import { setUser } from '@/app/store/userSlice/userSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import store from '@/app/store/store.ts';
+import { clearUser } from '@/app/store/userSlice/userSlice.ts';
 import { log } from '@/shared/lib';
-interface UseAuthResult<T> {
-  authenticate: (params: T) => Promise<void>;
+
+interface UseLogoutResult {
+  logout: () => Promise<void>;
   loading: boolean;
   error: string | null;
 }
 
-export const useAuth = <T>(url: string): UseAuthResult<T> => {
+export const useLogout = (): UseLogoutResult => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const { addNotification } = useContext(NotificationContext);
@@ -22,26 +23,23 @@ export const useAuth = <T>(url: string): UseAuthResult<T> => {
       addNotification(`${error}`, 3000, 'error');
     }
   }, [error]);
-
-  const authenticate = async (params: T) => {
+  const logout = useCallback(async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await axios.post(url, params);
-      addNotification(`${response.data.message}`, 3000, 'success');
-      log.info('User successfully authenticated');
-      const profile = await axios.get('/auth/profile');
-      localStorage.setItem('profile', JSON.stringify(profile.data));
-      store.dispatch(setUser(profile.data));
-      navigate('/home');
+      await axios.post('/auth/logout');
+      localStorage.removeItem('profile');
+      store.dispatch(clearUser());
+      addNotification('Successfully logged out', 3000, 'success');
+      navigate('/login');
     } catch (err: any) {
-      log.error('Error authenticating user:', err.response?.data?.message);
+      log.error(err);
       setError(err.response?.data?.message || 'An error occurred');
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate, addNotification]);
 
-  return { authenticate, loading, error };
+  return { logout, loading, error };
 };

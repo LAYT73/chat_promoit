@@ -9,6 +9,6 @@ export const saveUserProfileToLocalStorage = (profile: User | null) => {
 };
 
 export const getUserProfileFromLocalStorage = (): User | null => {
-  const profile = localStorage.getItem('userProfile');
+  const profile = localStorage.getItem('profile');
   return profile ? JSON.parse(profile) : null;
 };

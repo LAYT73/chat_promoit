@@ -1,16 +1,13 @@
 import React from 'react';
-import styles from './BlockContainer.module.scss';
-import BlockContainerProps from './IBlockContainerProps.ts';
+import styles from './Card.module.scss';
+import CardProps from './ICardProps.ts';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 
-const BlockContainer: React.FC<BlockContainerProps> = ({
-  children,
-  className,
-}) => {
+const Card: React.FC<CardProps> = ({ children, className }) => {
   return (
     <motion.div
-      className={classNames(styles.blockContainer, className)}
+      className={classNames(styles.card, className)}
       transition={{ type: 'spring' }}
       initial={{ y: -20 }}
       whileInView={{ y: 0 }}
@@ -21,4 +18,4 @@ const BlockContainer: React.FC<BlockContainerProps> = ({
   );
 };
 
-export default BlockContainer;
+export default Card;

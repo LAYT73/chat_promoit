@@ -1,0 +1,76 @@
+
+
+.container {
+  height: 100%;
+  width: 20%;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin: 24px auto;
+  cursor: pointer;
+}
+
+.profile {
+  margin-top: auto;
+  height: 80px;
+  display: flex;
+  align-items: start;
+  gap: 16px;
+}
+
+.profileText {
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.profileText span {
+  opacity: .5;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.exit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  align-self: center;
+  margin-right: 8px;
+  -webkit-transition: all .5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.exitIcon {
+  width: 24px;
+  height: 24px;
+  opacity: .5;
+  filter: drop-shadow(0 0 10px #D0302F);
+}
+
+.avatarInfo {
+  background-color: #4AC97E;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  bottom:56px;
+  left:36px;
+  border-radius: 5px;
+  outline: 4px solid black;
+  box-shadow: 0 0 10px 5px rgba(63, 144, 104, 0.35);
+}
+
+hr {
+  height: 0;
+  border:none;
+  border-top: 1px solid #32393f;
+}

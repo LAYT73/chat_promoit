@@ -5,7 +5,7 @@ interface Notification {
   id: string;
   message: string;
   duration?: number;
-  type?: 'success' | 'error' | 'info';
+  type?: 'success' | 'error' | 'info' | 'warning';
 }
 
 interface NotificationContextType {
@@ -13,7 +13,7 @@ interface NotificationContextType {
   addNotification: (
     message: string,
     duration?: number,
-    type?: 'success' | 'error' | 'info',
+    type?: 'success' | 'error' | 'info' | 'warning',
   ) => void;
   removeNotification: (id: string) => void;
 }
@@ -33,7 +33,7 @@ export const NotificationProvider: React.FC<{ children: ReactNode }> = ({
     (
       message: string,
       duration?: number,
-      type?: 'success' | 'error' | 'info',
+      type?: 'success' | 'error' | 'info' | 'warning',
     ) => {
       const id = Math.random().toString(36).substr(2, 9);
       if (notifications.length < 7) {

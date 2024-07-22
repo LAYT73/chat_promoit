@@ -5,4 +5,11 @@
   margin: 2vh 1vw;
   border-radius: 2vh;
   padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.main_content {
+  width: 80%;
 }

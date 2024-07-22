@@ -5,18 +5,23 @@ import ParagraphProps from './IParagraphProps';
 
 const Paragraph: React.FC<ParagraphProps> = ({
   size = 'medium',
-  style,
+  styleParagraph,
   children,
+  ...args
 }) => {
   const paragraphSizeClass: string = styles[size];
 
   const paragraphClasses: string = classNames(
     styles.paragraph,
     paragraphSizeClass,
-    style,
+    styleParagraph,
   );
 
-  return <p className={paragraphClasses}>{children}</p>;
+  return (
+    <p {...args} className={paragraphClasses}>
+      {children}
+    </p>
+  );
 };
 
 export default Paragraph;

@@ -68,4 +68,9 @@ export class AuthController {
   async login(@Body() body, @Res() res): Promise<void> {
     return this.authService.login(body.email, body.password, res);
   }
+
+  @Post('logout')
+  async logout(@Req() req, @Res() res): Promise<void> {
+    return this.authService.logout(req, res);
+  }
 }

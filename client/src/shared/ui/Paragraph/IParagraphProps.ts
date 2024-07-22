@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default interface ParagraphProps {
+export default interface ParagraphProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
   size?: 'little' | 'small' | 'medium' | 'large';
-  style?: string;
+  styleParagraph?: string;
   children: React.ReactNode;
 }

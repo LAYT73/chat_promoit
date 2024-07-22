@@ -46,7 +46,7 @@ const LoginForm: React.FC = () => {
           creative!
         </Heading>
       </div>
-      <Paragraph size={'large'} style={styles.paragraph}>
+      <Paragraph size={'large'} styleParagraph={styles.paragraph}>
         <AnimatedText text={'Log in to Artificium to start creating magic.'} />
       </Paragraph>
       <form onSubmit={handleSubmit(onSubmit)}>

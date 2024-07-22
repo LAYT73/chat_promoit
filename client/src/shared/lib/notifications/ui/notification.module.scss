@@ -1,5 +1,5 @@
 .notification {
-  background-color: #333;
+  background-color: #0D0F10;
   color: #fff;
   width: max-content;
   max-width: 25vw;
@@ -7,21 +7,33 @@
   border-radius: 4px;
   margin: 8px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.notificationIcon {
+  margin-right: 16px;
+}
+
+.notificationType {
+  margin-right: 8px;
+
+  &.warning {
+    color: #E26F20;
+  }
 
   &.error {
-    color: #ff7f7f;
+    color: #D0302F;
   }
 
   &.success {
-    color: #3f9068;
+    color: #4AC97E;
   }
 
   &.info {
-    color: #ffffff;
+    color: #4D62E5;
   }
 }
-
-
 
 .notification-enter {
   opacity: 0;
