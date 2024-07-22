@@ -3,7 +3,7 @@ import { UserService } from 'src/user/user.service';
 import { sign, verify } from 'jsonwebtoken';
 import { User } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import {
   UserEmailAlreadyExistsException,
   UserUsernameAlreadyExistsException,
@@ -116,12 +116,17 @@ export class AuthService {
     return { access_token };
   }
 
-  async logout(userId: number): Promise<void> {
-    const user = await this.userService.findById(userId);
+  async logout(req: Request, res: Response): Promise<void> {
+    const refreshToken = req.cookies['refresh_token'];
+    const decoded = verify(refreshToken, '7A125D673E2D5E29');
+    res.clearCookie('access_token');
+    res.clearCookie('refresh_token');
+    const user = await this.userService.findById(decoded.id);
     if (user) {
       user.refresh_token = null;
       await this.userService.updateUser(user);
     }
+    res.status(200).json({ message: 'Logged out successfully' });
   }
 
   private async setTokensInCookies(user: User, res: Response): Promise<void> {
@@ -129,7 +134,6 @@ export class AuthService {
       user,
     );
 
-    // Устанавливаем токены в куки
     res.cookie('access_token', access_token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production', // Используйте secure: true только в production

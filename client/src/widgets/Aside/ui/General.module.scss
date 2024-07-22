@@ -1,0 +1,25 @@
+.general {
+  width: 100%;
+  height: auto;
+  padding: 24px 0;
+}
+
+.link {
+  background: none !important;
+  -webkit-text-fill-color: white !important;
+}
+.link::before {
+  background: none !important;
+}
+
+.title {
+  padding: 0 16px;
+  color: #686B6E !important;
+}
+
+.content {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

@@ -9,6 +9,7 @@ import { LoginPage, SignupPage } from '@/pages';
 import { PrivateRoute } from './PrivateRoute.tsx';
 import { PublicRoute } from '@/app/routing/PublicRoute.tsx';
 import { Layout } from './../layouts/Layout.tsx';
+import { NotFoundPage } from '@/pages';
 
 const Routing: React.FC = () => {
   return (
@@ -25,7 +26,9 @@ const Routing: React.FC = () => {
             path="/sign-up"
             element={<PublicRoute element={<SignupPage />} />}
           />
+          <Route path="*" element={<Navigate to="/page-not-found" />} />
         </Route>
+        <Route path="/page-not-found" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
