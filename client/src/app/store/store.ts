@@ -3,7 +3,6 @@ import userReducer, { fetchUserProfile, setUser } from './userSlice/userSlice';
 import { thunk } from 'redux-thunk';
 import { getUserProfileFromLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
 
-// Конфигурация Redux Store
 const store = configureStore({
   reducer: {
     user: userReducer,
@@ -11,7 +10,6 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
-// Выполнение начального действия для получения профиля пользователя
 const initializeStore = async () => {
   const storedProfile = getUserProfileFromLocalStorage();
   if (storedProfile) {
@@ -21,7 +19,7 @@ const initializeStore = async () => {
   }
 };
 
-initializeStore(); // Вызовите этот метод, чтобы инициализировать данные при старте
+initializeStore();
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -6,7 +6,7 @@ import Info_Circle_Solid from '@/assets/icons/info-circle-solid.svg';
 import { motion } from 'framer-motion';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ icon, className, hint, ...props }, ref) => {
+  ({ icon, title, className, hint, ...props }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
     return (
@@ -15,7 +15,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         initial={{ y: -20 }}
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
+        className={classNames(className)}
       >
+        <label className={styles.label}>{title}</label>
         <div
           onBlur={() => {
             setIsFocused(false);
@@ -23,7 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           onFocus={() => {
             setIsFocused(true);
           }}
-          className={classNames(styles.inputContainer, className, {
+          className={classNames(styles.inputContainer, {
             [styles.focused]: isFocused,
           })}
         >

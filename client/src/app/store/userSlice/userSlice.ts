@@ -25,22 +25,18 @@ export const fetchUserProfile = createAsyncThunk<User, void, {}>(
   // @ts-ignore
   async (_, thunkAPI) => {
     try {
-      // Попытка получения профиля
       const response =
         await axios.get<FetchUserProfileResponse>('/auth/profile');
       localStorage.setItem('profile', JSON.stringify(response.data));
       return response.data;
     } catch (error) {
-      // Если получение профиля не удалось, попробуем обновить токен
       await thunkAPI
         .dispatch(refreshToken())
         .unwrap()
         .catch((err) => {
-          // Если обновление токена также не удалось, возвращаем ошибку
           return thunkAPI.rejectWithValue(err);
         });
 
-      // Попробуем получить профиль снова после обновления токена
       try {
         const response =
           await axios.get<FetchUserProfileResponse>('/auth/profile');

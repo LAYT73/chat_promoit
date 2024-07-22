@@ -64,6 +64,7 @@ const LoginForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
+                title={'Email'}
                 type="email"
                 placeholder="Enter your email"
                 icon={MailIcon}
@@ -91,6 +92,7 @@ const LoginForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
+                title={'Password'}
                 type="password"
                 placeholder="Enter your password"
                 icon={PadlockIcon}
