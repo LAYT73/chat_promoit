@@ -38,6 +38,11 @@ export const NotificationProvider: React.FC<{ children: ReactNode }> = ({
       const id = Math.random().toString(36).substr(2, 9);
       if (notifications.length < 7) {
         setNotifications((prev) => [...prev, { id, message, duration, type }]);
+        const audio = new Audio('/chpok.mp3');
+        audio.volume = 0.2;
+        audio.play().catch((error) => {
+          console.error('Ошибка при воспроизведении звука:', error);
+        });
       }
     },
     [notifications],

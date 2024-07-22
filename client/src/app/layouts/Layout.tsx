@@ -1,9 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from './../store/store';
 import styles from './Layout.module.scss';
+import { RootState } from '@/app/store/store';
 import { Aside } from '@/widgets';
+import { Header } from '@/widgets';
 
 export const Layout: React.FC = () => {
   const isAuthenticated: boolean = useSelector(
@@ -15,6 +16,7 @@ export const Layout: React.FC = () => {
       <div className={styles.layout}>
         <Aside />
         <main className={styles.main_content}>
+          <Header />
           <Outlet />
         </main>
       </div>

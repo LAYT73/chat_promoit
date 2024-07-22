@@ -1,0 +1,38 @@
+.nav_element {
+  background: none !important;
+  -webkit-text-fill-color: #9B9C9E !important;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+  gap: 8px;
+  color: #9B9C9E !important;
+  opacity: .5 !important;
+  -webkit-transition: all .5s !important;
+}
+
+.nav_element::before {
+  background: none !important;
+}
+
+.nav_element:hover {
+  opacity: 1 !important;
+}
+
+.nav_element img {
+  height: 20px;
+}
+
+.nav_element_text {
+
+}
+
+.nav_element_line {
+  position: absolute;
+  left: 0;
+  border-radius: 8px;
+  top: 48px;
+  background-color: rgba(182, 240, 156, 0.53);
+  height: 40px;
+  min-width: 100%;
+}

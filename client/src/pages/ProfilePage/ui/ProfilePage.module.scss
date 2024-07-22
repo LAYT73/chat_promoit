@@ -1,0 +1,15 @@
+.profilePage {
+  width: 100%;
+  margin-top: 16px;
+  max-height: calc(100% - 88px);
+  min-height: calc(100% - 88px);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.profilePage__heading {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  opacity: 0.4;
+}

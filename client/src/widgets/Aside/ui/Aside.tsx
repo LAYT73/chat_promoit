@@ -9,6 +9,7 @@ import { useLogout } from '@/shared/hooks';
 import TextLogo from '@/assets/images/logoText.svg';
 import General from '@/widgets/Aside/ui/General.tsx';
 import Other from '@/widgets/Aside/ui/Other.tsx';
+import { Link } from 'react-router-dom';
 const Aside: React.FC = () => {
   const user = getUserProfileFromLocalStorage();
   const { logout, loading } = useLogout();
@@ -23,7 +24,9 @@ const Aside: React.FC = () => {
     user && (
       <div className={styles.container}>
         <BlockContainer className={styles.aside}>
-          <img src={TextLogo} alt={'Logo'} className={styles.logo} />
+          <Link to={'/home'} className={styles.link}>
+            <img src={TextLogo} alt={'Logo'} className={styles.logo} />
+          </Link>
           <hr />
           <General />
           <hr />

@@ -1,4 +1,14 @@
-
+.link {
+  background: none !important;
+  -webkit-text-fill-color: white !important;
+  display: flex;
+  height: auto;
+  margin: 24px auto;
+  cursor: pointer;
+}
+.link::before {
+  background: none !important;
+}
 
 .container {
   height: 100%;
@@ -11,8 +21,6 @@
 }
 
 .logo {
-  margin: 24px auto;
-  cursor: pointer;
 }
 
 .profile {

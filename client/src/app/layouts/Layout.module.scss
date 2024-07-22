@@ -6,10 +6,12 @@
   border-radius: 2vh;
   padding: 12px;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: start;
 }
 
 .main_content {
+  margin-left: 12px;
   width: 80%;
+  height: 100%;
 }
