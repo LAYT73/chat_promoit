@@ -14,7 +14,7 @@ const Login: React.FC = () => {
         <Paragraph>
           <AnimatedText text={"Don't have an account?"} />
         </Paragraph>
-        <Link to={'/signup'}>Sign Up</Link>
+        <Link to={'/sign-up'}>Sign Up</Link>
       </div>
     </div>
   );

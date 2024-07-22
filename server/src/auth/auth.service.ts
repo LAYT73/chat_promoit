@@ -5,7 +5,8 @@ import { User } from 'src/user/entities/user.entity';
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
 import {
-  UserAlreadyExistsException,
+  UserEmailAlreadyExistsException,
+  UserUsernameAlreadyExistsException,
   UserNotFoundException,
   InvalidPasswordException,
   InvalidRefreshTokenException,
@@ -15,13 +16,21 @@ import {
 export class AuthService {
   constructor(private readonly userService: UserService) {}
 
-  async signUp(email: string, password: string, res: Response): Promise<void> {
-    const existingUser = await this.userService.findByEmail(email);
+  async signUp(
+    email: string,
+    password: string,
+    username: string,
+    res: Response,
+  ): Promise<void> {
+    let existingUser = await this.userService.findByEmail(email);
     if (existingUser) {
-      throw new UserAlreadyExistsException();
+      throw new UserEmailAlreadyExistsException();
     }
-
-    const user = await this.userService.addUser(email, password);
+    existingUser = await this.userService.findByUsername(username);
+    if (existingUser) {
+      throw new UserUsernameAlreadyExistsException();
+    }
+    const user = await this.userService.addUser(email, password, username);
     await this.setTokensInCookies(user, res);
   }
 
@@ -47,7 +56,7 @@ export class AuthService {
         email: user.email,
         role: user.role,
       },
-      '7A125D673E2D5E29', // Секретный ключ должен быть в конфигурации
+      '7A125D673E2D5E29', // TODO: Секретный ключ должен быть в конфигурации
       {
         expiresIn: '7d', // Например, 7 дней
       },
@@ -62,7 +71,7 @@ export class AuthService {
         email: user.email,
         role: user.role,
       },
-      '7A125D673E2D5E29', // Секретный ключ должен быть в конфигурации
+      '7A125D673E2D5E29', // TODO: Секретный ключ должен быть в конфигурации
       {
         expiresIn: '15m',
       },
@@ -98,7 +107,7 @@ export class AuthService {
         email: user.email,
         role: user.role,
       },
-      '7A125D673E2D5E29', // Секретный ключ должен быть в конфигурации
+      '7A125D673E2D5E29', // TODO: Секретный ключ должен быть в конфигурации
       {
         expiresIn: '15m',
       },

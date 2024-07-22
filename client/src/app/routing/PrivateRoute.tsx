@@ -1,24 +1,7 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from './../store/store';
+import React from 'react';
+import { Route } from './Route';
+import { PrivateRouteProps } from '@/app/routing/PrivateRoute.types.ts';
 
-interface PrivateRouteProps {
-  element: React.ReactElement;
-}
-
-export const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.user.isAuthenticated,
-  );
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
-  }, [isAuthenticated, navigate]);
-
-  if (isAuthenticated) {
-    return element;
-  }
+export const PrivateRoute: React.FC<PrivateRouteProps> = (props) => {
+  return <Route {...props} isPrivate={true} redirectPath="/login" />;
 };

@@ -20,7 +20,7 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     try {
-      const decoded = jwt.verify(token, '7A125D673E2D5E29'); // Секретный ключ должен быть в конфигурации
+      const decoded = jwt.verify(token, '7A125D673E2D5E29'); // TODO: Секретный ключ должен быть в конфигурации
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       req.user = decoded;
