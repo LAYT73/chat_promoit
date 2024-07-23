@@ -16,12 +16,12 @@ const NavElement: React.FC<NavElementProps> = ({ link, text, icon }) => {
     <Link
       to={link}
       className={styles.nav_element}
-      onMouseEnter={() => controls.start({ y: 0 })}
-      onMouseLeave={() => controls.start({ y: 20 })}
+      onMouseEnter={() => controls.start({ y: 20 })}
+      onMouseLeave={() => controls.start({ y: 40 })}
     >
       <motion.div
         className={styles.nav_element_line}
-        initial={{ y: 20 }}
+        initial={{ y: 40 }}
         animate={controls}
         transition={{ type: 'tween' }}
       />

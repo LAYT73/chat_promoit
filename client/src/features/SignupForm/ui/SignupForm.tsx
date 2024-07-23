@@ -4,6 +4,7 @@ import styles from './SignupForm.module.scss';
 import { AnimatedText, Button, CheckBox, Heading, Input } from '@/shared/ui';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/shared/hooks';
+import { useTranslate } from '@/app/i18n/i18n.ts';
 
 interface IFormInput {
   email: string;
@@ -21,7 +22,7 @@ const SignupForm: React.FC = () => {
     formState: { errors },
   } = useForm<IFormInput>();
   const { authenticate, loading } = useAuth<IFormInput>('/auth/signup');
-
+  const translate = useTranslate();
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     await authenticate({
       email: data.email,
@@ -36,11 +37,7 @@ const SignupForm: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.heading}>
         <Heading size={'h2'} fontStyle={'regular'}>
-          <AnimatedText
-            text={
-              'Connect with your team and bring your creative ideas to life.'
-            }
-          />
+          <AnimatedText text={translate('signup_title')} />
         </Heading>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -83,9 +80,9 @@ const SignupForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
-                title={'Username'}
+                title={translate('username')}
                 type="text"
-                placeholder="Enter your username"
+                placeholder={translate('enter_username')}
                 {...field}
                 hint={errors.email ? errors.email.message : undefined}
               />
@@ -108,9 +105,9 @@ const SignupForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
-                title={'Password'}
+                title={translate('password')}
                 type="password"
-                placeholder="Enter your password"
+                placeholder={translate('enter_password')}
                 {...field}
                 hint={errors.password ? errors.password.message : undefined}
               />
@@ -127,9 +124,9 @@ const SignupForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
-                title={'Confirm Password'}
+                title={translate('confirm_password')}
                 type="password"
-                placeholder="Confirm your password"
+                placeholder={translate('confirm_password')}
                 {...field}
                 hint={
                   errors.confirmPassword
@@ -146,18 +143,20 @@ const SignupForm: React.FC = () => {
             control={control}
             render={({ field }) => (
               <CheckBox {...field}>
-                <AnimatedText text={'I agree with'} />
+                <AnimatedText text={translate('i_agree_with')} />
               </CheckBox>
             )}
           />
-          <Link to={'/terms-and-conditions'}>Terms and conditions</Link>
+          <Link to={'/terms-and-conditions'}>
+            {translate('terms_and_conditions')}
+          </Link>
         </div>
         <Button
           type="submit"
           styleButton={styles.buttonLogin}
           disabled={loading}
         >
-          {loading ? 'Creating account...' : 'Create free account'}
+          {loading ? 'Creating account...' : translate('create_free_account')}
         </Button>
       </form>
     </div>

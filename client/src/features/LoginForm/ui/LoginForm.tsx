@@ -13,6 +13,7 @@ import MailIcon from '@/assets/icons/mail.svg';
 import PadlockIcon from '@/assets/icons/padlock.svg';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/shared/hooks';
+import { useTranslate } from '@/app/i18n/i18n.ts';
 
 interface IFormInput {
   email: string;
@@ -27,7 +28,7 @@ const LoginForm: React.FC = () => {
     formState: { errors },
   } = useForm<IFormInput>();
   const { authenticate, loading } = useAuth<IFormInput>('/auth/login');
-
+  const translate = useTranslate();
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     await authenticate({
       email: data.email,
@@ -47,7 +48,7 @@ const LoginForm: React.FC = () => {
         </Heading>
       </div>
       <Paragraph size={'large'} styleParagraph={styles.paragraph}>
-        <AnimatedText text={'Log in to Artificium to start creating magic.'} />
+        <AnimatedText text={translate('login_description')} />
       </Paragraph>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputContainer}>
@@ -66,7 +67,7 @@ const LoginForm: React.FC = () => {
               <Input
                 title={'Email'}
                 type="email"
-                placeholder="Enter your email"
+                placeholder={translate('enter_email')}
                 icon={MailIcon}
                 {...field}
                 hint={errors.email ? errors.email.message : undefined}
@@ -92,9 +93,9 @@ const LoginForm: React.FC = () => {
             }}
             render={({ field }) => (
               <Input
-                title={'Password'}
+                title={translate('password')}
                 type="password"
-                placeholder="Enter your password"
+                placeholder={translate('enter_password')}
                 icon={PadlockIcon}
                 className={styles.input}
                 {...field}
@@ -109,18 +110,18 @@ const LoginForm: React.FC = () => {
             control={control}
             render={({ field }) => (
               <CheckBox {...field}>
-                <AnimatedText text={'Remember me'} />
+                <AnimatedText text={translate('remember_me')} />
               </CheckBox>
             )}
           />
-          <Link to={'/forgot-password'}>Forgot password?</Link>
+          <Link to={'/forgot-password'}>{translate('forgot_password')}</Link>
         </div>
         <Button
           type="submit"
           styleButton={styles.buttonLogin}
           disabled={loading}
         >
-          {loading ? 'Logging in...' : 'Log in'}
+          {loading ? 'Logging in...' : translate('login')}
         </Button>
       </form>
     </div>

@@ -3,8 +3,10 @@ import styles from './NotFoundPage.module.scss';
 import { motion } from 'framer-motion';
 import { AnimatedText, Button, Heading, Paragraph } from '@/shared/ui';
 import { useNavigate } from 'react-router-dom';
+import { useTranslate } from '@/app/i18n/i18n.ts';
 
 const NotFoundPage: React.FC = () => {
+  const translate = useTranslate();
   const navigate = useNavigate();
   return (
     <div className={styles.wrapper}>
@@ -16,13 +18,10 @@ const NotFoundPage: React.FC = () => {
         className={styles.container}
       >
         <Heading size={'h1'} fontStyle={'bold'}>
-          <AnimatedText text={'404 Page Not Found!'} />
+          <AnimatedText text={translate('page_not_found.title')} />
         </Heading>
-        <Paragraph>
-          The page you are looking for does not exist. Please check the URL and
-          try again.
-        </Paragraph>
-        <Button onClick={() => navigate('/')}>Back to Home</Button>
+        <Paragraph>{translate('page_not_found')}</Paragraph>
+        <Button onClick={() => navigate('/')}>{translate('back_to_home')}</Button>
       </motion.div>
     </div>
   );

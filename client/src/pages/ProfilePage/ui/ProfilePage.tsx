@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './ProfilePage.module.scss';
 import {
   AnimatedText,
-  BlockContainer, Button,
+  BlockContainer,
+  Button,
   Heading,
   ModalConfirm,
 } from '@/shared/ui';

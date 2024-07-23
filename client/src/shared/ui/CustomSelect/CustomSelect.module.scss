@@ -1,0 +1,61 @@
+.selectContainer {
+  position: relative;
+  min-width: 180px;
+  height: 48px;
+}
+
+.selectBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  background-color: #1A1D21;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selectedValue {
+  flex: 1;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border-left: 2px solid rgba(204, 204, 204, 0.5);
+  border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+  margin-right: 8px;
+  transform: rotate(135deg);
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(-45deg);
+}
+
+.optionsList {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  border-radius: 4px;
+  background-color: #1A1D21;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.optionItem {
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #2d3238;
+  }
+}
