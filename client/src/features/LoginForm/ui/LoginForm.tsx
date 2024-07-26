@@ -1,25 +1,14 @@
 import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import styles from './LoginForm.module.scss';
-import {
-  AnimatedText,
-  Button,
-  CheckBox,
-  Heading,
-  Input,
-  Paragraph,
-} from '@/shared/ui';
+import { AnimatedText, Button, CheckBox, Input } from '@/shared/ui';
 import MailIcon from '@/assets/icons/mail.svg';
 import PadlockIcon from '@/assets/icons/padlock.svg';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/shared/hooks';
 import { useTranslate } from '@/app/i18n/i18n.ts';
-
-interface IFormInput {
-  email: string;
-  password: string;
-  remember: boolean;
-}
+import { IFormInput } from '@/features/LoginForm/ui/LoginForm.types.ts';
+import Header from '@/features/LoginForm/ui/Header.tsx';
 
 const LoginForm: React.FC = () => {
   const {
@@ -39,17 +28,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.heading}>
-        <Heading size={'h2'} fontStyle={'regular'}>
-          <AnimatedText text={"Let's get"} />
-        </Heading>
-        <Heading size={'h2'} fontStyle={'bold'} style={styles.headingGradient}>
-          creative!
-        </Heading>
-      </div>
-      <Paragraph size={'large'} styleParagraph={styles.paragraph}>
-        <AnimatedText text={translate('login_description')} />
-      </Paragraph>
+      <Header />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputContainer}>
           <Controller

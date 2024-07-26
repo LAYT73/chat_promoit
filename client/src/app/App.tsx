@@ -1,7 +1,7 @@
 import React from 'react';
 import Routing from '@/app/routing/Routing';
 import { log } from '@/shared/lib';
-import './App.css';
+import './App.module.css';
 
 const App: React.FC = () => {
   log.info('App component rendered');
