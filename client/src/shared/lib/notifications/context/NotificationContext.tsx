@@ -1,22 +1,9 @@
 import React, { createContext, useState, ReactNode, useCallback } from 'react';
 import NotificationsContainer from '@/shared/lib/notifications/ui/NotificationsContainer.tsx';
-
-interface Notification {
-  id: string;
-  message: string;
-  duration?: number;
-  type?: 'success' | 'error' | 'info' | 'warning';
-}
-
-interface NotificationContextType {
-  notifications: Notification[];
-  addNotification: (
-    message: string,
-    duration?: number,
-    type?: 'success' | 'error' | 'info' | 'warning',
-  ) => void;
-  removeNotification: (id: string) => void;
-}
+import {
+  NotificationContextType,
+  Notification,
+} from '@/shared/lib/notifications/context/NotificationContext.types.ts';
 
 export const NotificationContext = createContext<NotificationContextType>({
   notifications: [],

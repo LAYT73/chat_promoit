@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { UseModalReturn } from '@/shared/hooks/useModal/IUseModalReturn.ts';
+import { UseModalReturn } from '@/shared/hooks/useModal/useModal.types.ts';
 
 export const useModal = (): UseModalReturn => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

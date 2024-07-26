@@ -5,14 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import store from '@/app/store/store.ts';
 import { clearUser } from '@/app/store/userSlice/userSlice.ts';
 import { log } from '@/shared/lib';
+import { UseLogoutReturn } from '@/shared/hooks/useLogout/useLogout.types.ts';
 
-interface UseLogoutResult {
-  logout: () => Promise<void>;
-  loading: boolean;
-  error: string | null;
-}
-
-export const useLogout = (): UseLogoutResult => {
+export const useLogout = (): UseLogoutReturn => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const { addNotification } = useContext(NotificationContext);

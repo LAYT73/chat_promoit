@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const index = axios.create({
-  //   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
+  //   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000', TODO: change to your api url
   baseURL: 'http://localhost:3000',
   withCredentials: true,
   headers: {

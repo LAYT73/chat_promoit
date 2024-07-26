@@ -26,4 +26,5 @@ export const i18n = new I18N({
 });
 
 export const useTranslate = useTranslateBase<typeof i18n>;
+
 export const useI18N: () => ReactI18N<typeof i18n> = useI18nBase<typeof i18n>;

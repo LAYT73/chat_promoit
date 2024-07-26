@@ -1,20 +1,16 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from '@/shared/api';
-import { NotificationContext } from '@/shared/lib/notifications/context/NotificationContext.tsx';
 import { setUser } from '@/app/store/userSlice/userSlice.ts';
 import { useNavigate } from 'react-router-dom';
 import store from '@/app/store/store.ts';
 import { log } from '@/shared/lib';
-interface UseAuthResult<T> {
-  authenticate: (params: T) => Promise<void>;
-  loading: boolean;
-  error: string | null;
-}
+import { useNotification } from '@/shared/hooks';
+import { UseAuthReturn } from '@/shared/hooks/useAuth/useAuth.types.ts';
 
-export const useAuth = <T>(url: string): UseAuthResult<T> => {
+export const useAuth = <T>(url: string): UseAuthReturn<T> => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const { addNotification } = useContext(NotificationContext);
+  const { addNotification } = useNotification();
   const navigate = useNavigate();
 
   useEffect(() => {

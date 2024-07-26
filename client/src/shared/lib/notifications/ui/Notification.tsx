@@ -3,31 +3,11 @@ import styles from './notification.module.scss';
 import { motion } from 'framer-motion';
 import cn from 'classnames';
 import { AnimatedText } from '@/shared/ui';
-import InfoIcon from '@/assets/icons/info-icon.svg';
-import WarningIcon from '@/assets/icons/warning-icon.svg';
-import ErrorIcon from '@/assets/icons/error-icon.svg';
-import SuccessIcon from '@/assets/icons/success-icon.svg';
-
-interface NotificationProps {
-  message: string;
-  onDismiss: () => void;
-  duration?: number;
-  type?: 'success' | 'error' | 'info' | 'warning';
-}
-
-const typeIconMap = {
-  success: SuccessIcon,
-  error: ErrorIcon,
-  info: InfoIcon,
-  warning: WarningIcon,
-};
-
-const typeMessageMap = {
-  success: 'Success! ',
-  error: 'Something went wrong. ',
-  info: 'Info: ',
-  warning: 'Warning! ',
-};
+import {
+  NotificationProps,
+  typeIconMap,
+  typeMessageMap,
+} from '@/shared/lib/notifications/ui/Notification.types.ts';
 
 const Notification: React.FC<NotificationProps> = ({
   message,
