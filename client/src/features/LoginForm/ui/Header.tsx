@@ -1,7 +1,8 @@
 import { FunctionComponent } from 'react';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
 import styles from '@/features/LoginForm/ui/Header.module.scss';
 import { AnimatedText, Heading, Paragraph } from '@/shared/ui';
-import { useTranslate } from '@/app/i18n/i18n.ts';
 
 const Header: FunctionComponent = () => {
   const translate = useTranslate();

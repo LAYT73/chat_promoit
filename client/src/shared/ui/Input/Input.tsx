@@ -1,9 +1,11 @@
-import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
-import styles from './Input.module.scss';
-import { InputProps } from '@/shared/ui/Input/IInputProps.ts';
-import Info_Circle_Solid from '@/assets/icons/info-circle-solid.svg';
 import { motion } from 'framer-motion';
+import { forwardRef, useState } from 'react';
+
+import Info_Circle_Solid from '@/assets/icons/info-circle-solid.svg';
+import { InputProps } from '@/shared/ui/Input/IInputProps.ts';
+
+import styles from './Input.module.scss';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ icon, title, className, hint, ...props }, ref) => {

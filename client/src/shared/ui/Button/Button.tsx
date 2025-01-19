@@ -1,8 +1,9 @@
-import React from 'react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
+import React from 'react';
+
 import styles from './Button.module.scss';
 import ButtonProps from './IButtonProps';
-import { motion } from 'framer-motion';
 
 const Button: React.FC<ButtonProps> = ({
   onClick,

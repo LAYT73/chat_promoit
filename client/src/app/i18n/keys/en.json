@@ -8,6 +8,8 @@
   "enter_password": "Enter your password",
   "enter_username": "Enter your username",
   "confirm_password": "Confirm your password",
+  "enter_new_password": "Enter your new password",
+  "confirm_new_password": "Confirm your new password",
   "password": "Password",
   "username": "Username",
   "remember_me": "Remember me",

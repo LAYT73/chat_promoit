@@ -4,6 +4,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import AdminJS from 'adminjs';
+import { AdminModule } from '@adminjs/nestjs';
+import { Database, Resource } from '@adminjs/typeorm';
+import { User } from './user/entities/user.entity'; // Импортируйте вашу сущность
+
+AdminJS.registerAdapter({ Database, Resource });
 
 @Module({
   imports: [
@@ -12,11 +18,11 @@ import { UserModule } from './user/user.module';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get('DB_HOST'),
-        port: configService.get('DB_PORT'),
-        username: configService.get('DB_USERNAME'),
-        password: configService.get('DB_PASSWORD'),
-        database: configService.get('DB_DATABASE'),
+        host: configService.get('POSTGRES_HOST'),
+        port: configService.get('POSTGRES_PORT'),
+        username: configService.get('POSTGRES_USER'),
+        password: configService.get('POSTGRES_PASSWORD'),
+        database: configService.get('POSTGRES_DB'),
         synchronize: true,
         entities: [__dirname + '/**/*.entity{.js, .ts}'],
       }),
@@ -24,6 +30,12 @@ import { UserModule } from './user/user.module';
     }),
     AuthModule,
     UserModule,
+    AdminModule.createAdmin({
+      adminJsOptions: {
+        rootPath: '/admin',
+        resources: [User], // Добавьте ваши сущности здесь
+      },
+    }),
   ],
   controllers: [],
   providers: [],

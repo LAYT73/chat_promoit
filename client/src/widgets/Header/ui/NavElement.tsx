@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './NavElement.module.scss';
-import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import styles from './NavElement.module.scss';
 
 type NavElementProps = {
   link: string;

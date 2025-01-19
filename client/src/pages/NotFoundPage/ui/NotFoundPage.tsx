@@ -1,9 +1,11 @@
-import React from 'react';
-import styles from './NotFoundPage.module.scss';
 import { motion } from 'framer-motion';
-import { AnimatedText, Button, Heading, Paragraph } from '@/shared/ui';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { useTranslate } from '@/app/i18n/i18n.ts';
+import { AnimatedText, Button, Heading, Paragraph } from '@/shared/ui';
+
+import styles from './NotFoundPage.module.scss';
 
 const NotFoundPage: React.FC = () => {
   const translate = useTranslate();
@@ -21,7 +23,9 @@ const NotFoundPage: React.FC = () => {
           <AnimatedText text={translate('page_not_found.title')} />
         </Heading>
         <Paragraph>{translate('page_not_found')}</Paragraph>
-        <Button onClick={() => navigate('/')}>{translate('back_to_home')}</Button>
+        <Button onClick={() => navigate('/')}>
+          {translate('back_to_home')}
+        </Button>
       </motion.div>
     </div>
   );

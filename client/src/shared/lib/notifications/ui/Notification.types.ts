@@ -1,7 +1,7 @@
-import InfoIcon from '@/assets/icons/info-icon.svg';
-import WarningIcon from '@/assets/icons/warning-icon.svg';
 import ErrorIcon from '@/assets/icons/error-icon.svg';
+import InfoIcon from '@/assets/icons/info-icon.svg';
 import SuccessIcon from '@/assets/icons/success-icon.svg';
+import WarningIcon from '@/assets/icons/warning-icon.svg';
 
 export interface NotificationProps {
   message: string;

@@ -1,7 +1,9 @@
-import React from 'react';
-import styles from './ModalConfirm.module.scss';
-import { Button, Portal } from '@/shared/ui';
 import { motion } from 'framer-motion';
+import React from 'react';
+
+import { Button, Portal } from '@/shared/ui';
+
+import styles from './ModalConfirm.module.scss';
 
 interface ModalProps {
   isOpen: boolean;

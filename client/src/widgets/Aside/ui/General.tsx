@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from './General.module.scss';
-import { Paragraph } from '@/shared/ui';
-import Card from '@/widgets/Aside/ui/Card.tsx';
+import { Link } from 'react-router-dom';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
 import SearchIcon from '@/assets/icons/search-icon.svg';
 import SettingsIcon from '@/assets/icons/settings.svg';
 import ProfileIcon from '@/assets/icons/user-icon.svg';
-import { Link } from 'react-router-dom';
-import { useTranslate } from '@/app/i18n/i18n.ts';
+import { Paragraph } from '@/shared/ui';
+import Card from '@/widgets/Aside/ui/Card.tsx';
+
+import styles from './General.module.scss';
 
 const General: React.FC = () => {
   const translate = useTranslate();

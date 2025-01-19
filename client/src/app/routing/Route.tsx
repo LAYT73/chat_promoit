@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from './../store/store';
+import { useNavigate } from 'react-router-dom';
+
 import { RouteProps } from '@/app/routing/Route.types.ts';
+
+import { RootState } from '../store/store';
 
 export const Route: React.FC<RouteProps> = ({
   element,

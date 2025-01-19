@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import axios from '@/shared/api';
-import { setUser } from '@/app/store/userSlice/userSlice.ts';
 import { useNavigate } from 'react-router-dom';
+
 import store from '@/app/store/store.ts';
-import { log } from '@/shared/lib';
+import { setUser } from '@/app/store/userSlice/userSlice.ts';
+import axios from '@/shared/api';
 import { useNotification } from '@/shared/hooks';
 import { UseAuthReturn } from '@/shared/hooks/useAuth/useAuth.types.ts';
+import { log } from '@/shared/lib';
 
 export const useAuth = <T>(url: string): UseAuthReturn<T> => {
   const [loading, setLoading] = useState<boolean>(false);

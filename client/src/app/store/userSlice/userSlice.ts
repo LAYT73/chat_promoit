@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { User } from '@/entities/user/User';
 import axios from '@/shared/api';
-import { saveUserProfileToLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
 import { log } from '@/shared/lib';
+import { saveUserProfileToLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface UserState {
   isAuthenticated: boolean;

@@ -9,6 +9,7 @@
   color: #9B9C9E !important;
   opacity: .8 !important;
   -webkit-transition: all .5s !important;
+  transition: all .5s !important;
 }
 
 .nav_element::before {
@@ -21,10 +22,6 @@
 
 .nav_element img {
   height: 20px;
-}
-
-.nav_element_text {
-
 }
 
 .nav_element_line {

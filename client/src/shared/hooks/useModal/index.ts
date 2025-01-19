@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
+
 import { UseModalReturn } from '@/shared/hooks/useModal/useModal.types.ts';
 
 export const useModal = (): UseModalReturn => {

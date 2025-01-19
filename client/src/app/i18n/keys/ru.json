@@ -8,6 +8,8 @@
   "enter_password": "Введите ваш пароль",
   "enter_username": "Введите ваш имя",
   "confirm_password": "Подтвердите пароль",
+  "enter_new_password": "Введите новый пароль",
+  "confirm_new_password": "Подтвердите новый пароль",
   "password": "Пароль",
   "username": "Имя",
   "remember_me": "Запомнить меня",

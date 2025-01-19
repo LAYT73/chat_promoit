@@ -1,10 +1,12 @@
 import React from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import styles from './SignupForm.module.scss';
-import { AnimatedText, Button, CheckBox, Heading, Input } from '@/shared/ui';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useAuth } from '@/shared/hooks';
+
 import { useTranslate } from '@/app/i18n/i18n.ts';
+import { useAuth } from '@/shared/hooks';
+import { AnimatedText, Button, CheckBox, Heading, Input } from '@/shared/ui';
+
+import styles from './SignupForm.module.scss';
 
 interface IFormInput {
   email: string;

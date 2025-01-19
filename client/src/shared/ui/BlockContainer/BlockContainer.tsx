@@ -1,8 +1,9 @@
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import React from 'react';
+
 import styles from './BlockContainer.module.scss';
 import BlockContainerProps from './IBlockContainerProps.ts';
-import { motion } from 'framer-motion';
-import classNames from 'classnames';
 
 const BlockContainer: React.FC<BlockContainerProps> = ({
   children,

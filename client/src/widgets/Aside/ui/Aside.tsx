@@ -1,14 +1,17 @@
 import React from 'react';
-import styles from './Aside.module.scss';
-import { BlockContainer, Card, Paragraph } from '@/shared/ui';
-import Avatar from '@/assets/images/AvatarTest.png';
+import { Link } from 'react-router-dom';
+
 import Exit from '@/assets/icons/exit-user.svg';
-import { getUserProfileFromLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
-import { useLogout, useNotification } from '@/shared/hooks';
+import Avatar from '@/assets/images/AvatarTest.png';
 import TextLogo from '@/assets/images/logoText.svg';
+import { useLogout, useNotification } from '@/shared/hooks';
+import { getUserProfileFromLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
+import { BlockContainer, Card, Paragraph } from '@/shared/ui';
 import General from '@/widgets/Aside/ui/General.tsx';
 import Other from '@/widgets/Aside/ui/Other.tsx';
-import { Link } from 'react-router-dom';
+
+import styles from './Aside.module.scss';
+
 const Aside: React.FC = () => {
   const user = getUserProfileFromLocalStorage();
   const { logout, loading } = useLogout();

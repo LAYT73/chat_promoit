@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import React, { useContext } from 'react';
+
 import { NotificationContext } from '../context/NotificationContext';
 import Notification from './Notification';
 import styles from './notification.module.scss';

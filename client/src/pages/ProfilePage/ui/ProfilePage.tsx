@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from './ProfilePage.module.scss';
-import { AnimatedText, BlockContainer, Heading } from '@/shared/ui';
+
 import { ProfileForm } from '@/features';
+import { AnimatedText, BlockContainer, Heading } from '@/shared/ui';
+
+import styles from './ProfilePage.module.scss';
 
 const ProfilePage: React.FC = () => {
   return (

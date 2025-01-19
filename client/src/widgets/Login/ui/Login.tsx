@@ -1,10 +1,13 @@
 import React from 'react';
-import styles from './Login.module.scss';
+import { Link } from 'react-router-dom';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
 import Logo from '@/assets/icons/logo.svg';
 import { LoginForm } from '@/features';
 import { AnimatedText, Paragraph } from '@/shared/ui';
-import { Link } from 'react-router-dom';
-import { useTranslate } from '@/app/i18n/i18n.ts';
+
+import styles from './Login.module.scss';
+
 const Login: React.FC = () => {
   const translate = useTranslate();
   return (

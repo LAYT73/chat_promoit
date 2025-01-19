@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import styles from './SignupPage.module.scss';
-import { Signup } from '@/widgets';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+
+import { Signup } from '@/widgets';
+
+import styles from './SignupPage.module.scss';
 
 const SignupPage: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

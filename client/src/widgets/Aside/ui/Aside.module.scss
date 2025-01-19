@@ -20,9 +20,6 @@
   flex-direction: column;
 }
 
-.logo {
-}
-
 .profile {
   margin-top: auto;
   height: 80px;
@@ -51,7 +48,9 @@
   margin-left: auto;
   align-self: center;
   margin-right: 8px;
+  transition: all .5s;
   -webkit-transition: all .5s;
+
 
   &:hover {
     transform: scale(1.1);

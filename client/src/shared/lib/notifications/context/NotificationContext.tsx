@@ -1,9 +1,9 @@
-import React, { createContext, useState, ReactNode, useCallback } from 'react';
-import NotificationsContainer from '@/shared/lib/notifications/ui/NotificationsContainer.tsx';
+import React, { createContext, ReactNode, useCallback, useState } from 'react';
+
 import {
-  NotificationContextType,
-  Notification,
+    Notification, NotificationContextType
 } from '@/shared/lib/notifications/context/NotificationContext.types.ts';
+import NotificationsContainer from '@/shared/lib/notifications/ui/NotificationsContainer.tsx';
 
 export const NotificationContext = createContext<NotificationContextType>({
   notifications: [],

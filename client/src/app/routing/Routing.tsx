@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
-import { LoginPage, ProfilePage, SignupPage } from '@/pages';
-import { PrivateRoute } from './PrivateRoute.tsx';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+
 import { PublicRoute } from '@/app/routing/PublicRoute.tsx';
-import { Layout } from './../layouts/Layout.tsx';
-import { NotFoundPage } from '@/pages';
+import { LoginPage, NotFoundPage, ProfilePage, SignupPage } from '@/pages';
+
+import { Layout } from '../layouts/Layout.tsx';
+import { PrivateRoute } from './PrivateRoute.tsx';
 
 const Routing: React.FC = () => {
   return (

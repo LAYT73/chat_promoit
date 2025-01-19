@@ -1,11 +1,12 @@
-import { useState, useContext, useCallback, useEffect } from 'react';
-import axios from '@/shared/api';
-import { NotificationContext } from '@/shared/lib/notifications/context/NotificationContext.tsx';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import store from '@/app/store/store.ts';
 import { clearUser } from '@/app/store/userSlice/userSlice.ts';
-import { log } from '@/shared/lib';
+import axios from '@/shared/api';
 import { UseLogoutReturn } from '@/shared/hooks/useLogout/useLogout.types.ts';
+import { log } from '@/shared/lib';
+import { NotificationContext } from '@/shared/lib/notifications/context/NotificationContext.tsx';
 
 export const useLogout = (): UseLogoutReturn => {
   const [loading, setLoading] = useState<boolean>(false);

@@ -1,10 +1,8 @@
 import {
-  I18N,
-  createPluralize,
-  useTranslate as useTranslateBase,
-  useI18N as useI18nBase,
+    createPluralize, I18N, useI18N as useI18nBase, useTranslate as useTranslateBase
 } from '@ayub-begimkulov/i18n';
 import { ReactI18N } from '@ayub-begimkulov/i18n/dist/react/hooks';
+
 import en from './keys/en.json';
 import ru from './keys/ru.json';
 

@@ -1,7 +1,9 @@
-import { forwardRef } from 'react';
 import classNames from 'classnames';
-import styles from './CheckBox.module.scss';
+import { forwardRef } from 'react';
+
 import CheckBoxProps from '@/shared/ui/CheckBox/ICheckBoxProps.ts';
+
+import styles from './CheckBox.module.scss';
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   ({ children, style }, ref) => {

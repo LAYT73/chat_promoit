@@ -1,7 +1,8 @@
-import React from 'react';
 import classNames from 'classnames';
-import styles from './Paragraph.module.scss';
+import React from 'react';
+
 import ParagraphProps from './IParagraphProps';
+import styles from './Paragraph.module.scss';
 
 const Paragraph: React.FC<ParagraphProps> = ({
   size = 'medium',

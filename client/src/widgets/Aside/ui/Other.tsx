@@ -1,11 +1,13 @@
 import React from 'react';
-import styles from './Other.module.scss';
+import { Link } from 'react-router-dom';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
+import MessageIcon from '@/assets/icons/message-icon.svg';
+import FriendsIcon from '@/assets/icons/users-icon.svg';
 import { Paragraph } from '@/shared/ui';
 import Card from '@/widgets/Aside/ui/Card.tsx';
-import FriendsIcon from '@/assets/icons/users-icon.svg';
-import MessageIcon from '@/assets/icons/message-icon.svg';
-import { Link } from 'react-router-dom';
-import { useTranslate } from '@/app/i18n/i18n.ts';
+
+import styles from './Other.module.scss';
 
 const Other: React.FC = () => {
   const translate = useTranslate();

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import styles from './notification.module.scss';
-import { motion } from 'framer-motion';
 import cn from 'classnames';
-import { AnimatedText } from '@/shared/ui';
+import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+
 import {
-  NotificationProps,
-  typeIconMap,
-  typeMessageMap,
+    NotificationProps, typeIconMap, typeMessageMap
 } from '@/shared/lib/notifications/ui/Notification.types.ts';
+import { AnimatedText } from '@/shared/ui';
+
+import styles from './notification.module.scss';
 
 const Notification: React.FC<NotificationProps> = ({
   message,

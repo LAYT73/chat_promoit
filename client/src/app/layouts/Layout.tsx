@@ -1,10 +1,11 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import styles from './Layout.module.scss';
+import { Outlet } from 'react-router-dom';
+
 import { RootState } from '@/app/store/store';
-import { Aside } from '@/widgets';
-import { Header } from '@/widgets';
+import { Aside, Header } from '@/widgets';
+
+import styles from './Layout.module.scss';
 
 export const Layout: React.FC = () => {
   const isAuthenticated: boolean = useSelector(

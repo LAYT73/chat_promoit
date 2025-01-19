@@ -1,10 +1,12 @@
 import React from 'react';
-import styles from './Signup.module.scss';
-import Logo from '@/assets/icons/logo.svg';
-import { AnimatedText, Paragraph } from '@/shared/ui';
 import { Link } from 'react-router-dom';
-import { SignupForm } from '@/features';
+
 import { useTranslate } from '@/app/i18n/i18n.ts';
+import Logo from '@/assets/icons/logo.svg';
+import { SignupForm } from '@/features';
+import { AnimatedText, Paragraph } from '@/shared/ui';
+
+import styles from './Signup.module.scss';
 
 const Signup: React.FC = () => {
   const translate = useTranslate();

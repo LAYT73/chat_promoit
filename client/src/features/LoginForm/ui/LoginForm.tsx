@@ -1,14 +1,16 @@
 import React from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import styles from './LoginForm.module.scss';
-import { AnimatedText, Button, CheckBox, Input } from '@/shared/ui';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
 import MailIcon from '@/assets/icons/mail.svg';
 import PadlockIcon from '@/assets/icons/padlock.svg';
-import { Link } from 'react-router-dom';
-import { useAuth } from '@/shared/hooks';
-import { useTranslate } from '@/app/i18n/i18n.ts';
-import { IFormInput } from '@/features/LoginForm/ui/LoginForm.types.ts';
 import Header from '@/features/LoginForm/ui/Header.tsx';
+import { IFormInput } from '@/features/LoginForm/ui/LoginForm.types.ts';
+import { useAuth } from '@/shared/hooks';
+import { AnimatedText, Button, CheckBox, Input } from '@/shared/ui';
+
+import styles from './LoginForm.module.scss';
 
 const LoginForm: React.FC = () => {
   const {

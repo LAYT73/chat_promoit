@@ -1,13 +1,15 @@
 import { FunctionComponent } from 'react';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
-import styles from './ProfileForm.module.scss';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+
+import { useTranslate } from '@/app/i18n/i18n.ts';
 import MailIcon from '@/assets/icons/mail.svg';
 import PadlockIcon from '@/assets/icons/padlock.svg';
-import { useTranslate } from '@/app/i18n/i18n.ts';
-import { getUserProfileFromLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
-import { Button, Input, ModalConfirm } from '@/shared/ui';
 import AvatarUploader from '@/features/ProfileForm/ui/AvatarUploader.tsx';
 import { useModal } from '@/shared/hooks';
+import { getUserProfileFromLocalStorage } from '@/shared/lib/localStorage/localStorage.ts';
+import { Button, Input, ModalConfirm } from '@/shared/ui';
+
+import styles from './ProfileForm.module.scss';
 
 interface IFormInput {
   email: string;
@@ -152,7 +154,11 @@ const ProfileForm: FunctionComponent = () => {
               icon={PadlockIcon}
               className={styles.input}
               {...field}
-              hint={errors.confirmPassword ? errors.confirmPassword.message : undefined}
+              hint={
+                errors.confirmPassword
+                  ? errors.confirmPassword.message
+                  : undefined
+              }
             />
           )}
         />
